@@ -10,21 +10,21 @@ class Navbar extends Component {
         color-on-scroll="100"
       >
         <div className="container">
-          <div className="navbar-header">
-            <button
-              type="button"
-              className="ml-auto navbar-toggler"
-              data-toggle="collapse"
-              data-target="#example-navbar-transparent"
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-            </button>
+          <div className="navbar-translate">
             <NavLink className="navbar-brand" to="/">
               Doe Aqui
             </NavLink>
+            <button
+              className="ml-auto navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon" />
+              <span className="navbar-toggler-icon" />
+              <span className="navbar-toggler-icon" />
+            </button>
           </div>
           <div
             className="collapse navbar-collapse"
