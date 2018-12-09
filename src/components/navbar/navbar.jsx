@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import UserNavbar from "./user-navbar";
 
 class Navbar extends Component {
   state = {};
@@ -42,6 +43,7 @@ class Navbar extends Component {
                 </NavLink>
               </li>
             </ul>
+            <UserNavbar />
           </div>
         </div>
       </nav>
