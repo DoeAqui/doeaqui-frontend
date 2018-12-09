@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../navbar/navbar";
+import Footer from "../footer/footer";
+import HowItWorks from "../home/how-it-works";
 
 class Home extends Component {
   state = {};
@@ -10,7 +12,7 @@ class Home extends Component {
         <Navbar />
         <div
           className="page-header header-filter"
-          data-parallax="true"
+          data-parallax="false"
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-0.3.5&s=241e83d0f92d415e27c0530a9905e8b9&auto=format&fit=crop&w=3300&q=80')"
@@ -39,6 +41,8 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <HowItWorks />
+        <Footer />
       </React.Fragment>
     );
   }

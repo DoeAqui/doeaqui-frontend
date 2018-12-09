@@ -5,7 +5,10 @@ class Navbar extends Component {
   state = {};
   render() {
     return (
-      <nav className="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
+      <nav
+        className="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"
+        color-on-scroll="100"
+      >
         <div className="container">
           <div className="navbar-header">
             <button
