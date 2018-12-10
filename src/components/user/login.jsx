@@ -33,7 +33,7 @@ class Login extends Form {
 
     return (
       <div className="row" style={{ marginRight: "0px" }}>
-        <div className="col-md-6">
+        <div className="col-md-6" style={{ paddingRight: "0px" }}>
           <div
             className="page-header header-filter"
             style={{
