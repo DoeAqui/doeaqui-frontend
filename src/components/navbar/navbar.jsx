@@ -44,7 +44,7 @@ class Navbar extends Component {
                 </NavLink>
               </li>
             </ul>
-            <UserNavbar />
+            <UserNavbar user={this.props.user} />
           </div>
         </div>
       </nav>

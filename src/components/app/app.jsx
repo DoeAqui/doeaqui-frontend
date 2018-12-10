@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Home from "../home/home";
 import Register from "../user/register";
+import Login from "../user/login";
+import Logout from "../user/logout";
 import AboutUs from "../about/about-us";
 
 class App extends Component {
@@ -12,6 +14,8 @@ class App extends Component {
         <ToastContainer />
         <Switch>
           <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/logout" component={Logout} />
           <Route path="/about" component={AboutUs} />
           <Route exact path="/" component={Home} />
         </Switch>

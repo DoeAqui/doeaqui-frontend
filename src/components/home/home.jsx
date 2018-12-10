@@ -3,13 +3,20 @@ import { NavLink } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import HowItWorks from "../home/how-it-works";
+import authService from "../../services/authService";
 
 class Home extends Component {
   state = {};
+
+  componentDidMount() {
+    const user = authService.getCurrentUser();
+    this.setState({ user });
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Navbar />
+        <Navbar user={this.state.user} />
         <div
           className="page-header header-filter"
           data-parallax="false"
