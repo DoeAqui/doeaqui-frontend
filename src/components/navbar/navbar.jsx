@@ -9,6 +9,7 @@ class Navbar extends Component {
       <nav
         className="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"
         color-on-scroll="100"
+        id="sectionsNav"
       >
         <div className="container">
           <div className="navbar-translate">
