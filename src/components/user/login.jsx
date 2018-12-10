@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Link } from "react-router-dom";
 import Form from "../common/form";
+import SimpleFooter from "../footer/simpleFooter";
 import authService from "../../services/authService";
 
 class Login extends Form {
@@ -84,6 +85,9 @@ class Login extends Form {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div style={{ paddingTop: "200px" }}>
+                <SimpleFooter />
               </div>
             </div>
           </div>
