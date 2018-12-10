@@ -111,10 +111,7 @@ class Register extends Form {
                               </div>
                             </div>
                             <div className="text-center">
-                              {this.renderButton(
-                                "Criar conta",
-                                "btn btn-rose btn-round"
-                              )}
+                              {this.renderButton("Criar conta", "btn btn-rose")}
                             </div>
                             <br />
                             <br />

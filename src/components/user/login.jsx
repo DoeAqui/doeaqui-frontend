@@ -42,12 +42,12 @@ class Login extends Form {
             }}
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-5">
           <div className="login-page">
             <div className="page-header">
               <div className="container" style={{ color: "#3C4858" }}>
                 <div className="row">
-                  <div className="col-md-6 col-sm-8 ml-auto mr-auto">
+                  <div className="col-md-7 col-sm-9 ml-auto mr-auto">
                     <h1 className="text-center">Olá</h1>
                     <p className="description text-center">
                       Entre com sua conta para continuar
@@ -86,7 +86,7 @@ class Login extends Form {
                   </div>
                 </div>
               </div>
-              <div style={{ paddingTop: "200px" }}>
+              <div style={{ paddingTop: "150px" }}>
                 <SimpleFooter />
               </div>
             </div>

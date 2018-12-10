@@ -6,6 +6,7 @@ import Register from "../user/register";
 import Login from "../user/login";
 import Logout from "../user/logout";
 import AboutUs from "../about/about-us";
+import "react-toastify/dist/ReactToastify.css";
 
 class App extends Component {
   render() {
