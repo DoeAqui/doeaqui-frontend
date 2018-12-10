@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "../common/form";
+import SimpleFooter from "../footer/simpleFooter";
 
 class Register extends Form {
   state = {
@@ -15,7 +16,7 @@ class Register extends Form {
       <React.Fragment>
         <div className="signup-page">
           <div className="page-header" filter-color="purple">
-            <div className="container">
+            <div className="container" style={{ paddingTop: "0px" }}>
               <div className="row">
                 <div className="col-md-10 ml-auto mr-auto">
                   <div className="card card-signup">
@@ -125,6 +126,7 @@ class Register extends Form {
                 </div>
               </div>
             </div>
+            <SimpleFooter />
           </div>
         </div>
       </React.Fragment>
