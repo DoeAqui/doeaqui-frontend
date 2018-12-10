@@ -1,6 +1,8 @@
 import React from "react";
 import Form from "../common/form";
+import { toast } from "react-toastify";
 import SimpleFooter from "../footer/simpleFooter";
+import userService from "../../services/userService";
 
 class Register extends Form {
   state = {
@@ -11,6 +13,27 @@ class Register extends Form {
       phone: ""
     }
   };
+
+  doSubmit = async () => {
+    try {
+      const { data } = this.state;
+
+      await userService.register(
+        data.name,
+        data.email,
+        data.password,
+        data.phone
+      );
+
+      const { state } = this.props.location;
+      window.location = state ? state.from.pathname : "/";
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        toast.error(ex.response.data.errors);
+      }
+    }
+  };
+
   render() {
     return (
       <React.Fragment>
