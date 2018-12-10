@@ -19,31 +19,13 @@ class UserNavbar extends Component {
                 {user.unique_name}
               </NavLink>
               <div className="dropdown-menu dropdown-with-icons">
-                <NavLink
-                  to="/profile"
-                  className="dropdown-item"
-                  onClick={e => {
-                    this.onNavlinkClick(e);
-                  }}
-                >
+                <NavLink to="/profile" className="dropdown-item">
                   <i className="material-icons">person</i> Meu Perfil
                 </NavLink>
-                <NavLink
-                  to="/my-donations"
-                  className="dropdown-item"
-                  onClick={e => {
-                    this.onNavlinkClick(e);
-                  }}
-                >
+                <NavLink to="/my-donations" className="dropdown-item">
                   <i className="material-icons">local_mall</i> Minhas Doações
                 </NavLink>
-                <NavLink
-                  to="/my-bids"
-                  className="dropdown-item"
-                  onClick={e => {
-                    this.onNavlinkClick(e);
-                  }}
-                >
+                <NavLink to="/my-bids" className="dropdown-item">
                   <i className="material-icons">how_to_vote</i> Meus Interesses
                 </NavLink>
                 <div className="dropdown-divider" />

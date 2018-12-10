@@ -5,6 +5,7 @@ import Home from "../home/home";
 import Register from "../user/register";
 import Login from "../user/login";
 import Logout from "../user/logout";
+import Profile from "../user/profile";
 import AboutUs from "../about/about-us";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
+          <Route path="/profile" component={Profile} />
           <Route path="/about" component={AboutUs} />
           <Route exact path="/" component={Home} />
         </Switch>
