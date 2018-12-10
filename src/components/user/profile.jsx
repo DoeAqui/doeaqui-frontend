@@ -32,7 +32,7 @@ class Profile extends Component {
         <div className="profile-content">
           <div className="container">
             <h2>Meu perfil</h2>
-            <div className="row">
+            <div className="row" style={{ paddingTop: "15px" }}>
               <div className="col-md-3">
                 <ul className="nav nav-pills nav-pills-rose flex-column">
                   <li className="nav-item">
