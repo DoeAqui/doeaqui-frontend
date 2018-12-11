@@ -8,8 +8,14 @@ const tokenKey = "token";
 http.setJwt(getJwt());
 
 export async function login(email, password) {
-  const { data: result } = await http.post(apiEndpoint, { email, password });
-  localStorage.setItem(tokenKey, result.data.access_token);
+  try {
+    const response = await http.post(apiEndpoint, { email, password });
+    const { data: result } = await http.post(apiEndpoint, { email, password });
+    localStorage.setItem(tokenKey, result.data.access_token);
+    return response.data;
+  } catch (ex) {
+    return ex.response.data;
+  }
 }
 
 export function logout() {

@@ -13,18 +13,14 @@ class Login extends Form {
   };
 
   doSubmit = async () => {
-    try {
-      const { data } = this.state;
-      await authService.login(data.email, data.password);
+    const { data } = this.state;
+    const result = await authService.login(data.email, data.password);
 
+    if (result.success === true) {
       const { state } = this.props.location;
       window.location = state ? state.from.pathname : "/";
-    } catch (ex) {
-      if (ex.response && ex.response.status === 400) {
-        const errors = { ...this.state.errors };
-        errors.email = ex.response.data.errors;
-        this.setState({ errors });
-      }
+    } else if (result.success === false) {
+      this.showErrors(result.errors);
     }
   };
 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { toast } from "react-toastify";
 // import Joi from "joi-browser";
 import Input from "./input";
 
@@ -50,6 +51,12 @@ class Form extends Component {
         // error={this.state.errors[name]}
       />
     );
+  }
+
+  showErrors(errors) {
+    errors.forEach(error => {
+      toast.error(error);
+    });
   }
 }
 
