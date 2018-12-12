@@ -58,45 +58,58 @@ class Login extends Form {
             }}
           />
         </div>
-        <div className="col-md-5">
+        <div className="col-md-6">
           <div className="login-page">
             <div className="page-header">
               <div className="container" style={{ color: "#3C4858" }}>
                 <div className="row">
-                  <div className="col-md-7 col-sm-9 ml-auto mr-auto">
+                  <div className="col-md-3" />
+                  <div className="col-md-6 col-sm-9 ml-auto">
                     <h1 className="text-center">Olá</h1>
                     <p className="description text-center">
                       Entre com sua conta para continuar
                     </p>
                     <form className="form" onSubmit={this.handleSubmit}>
-                      <div
-                        className={
-                          "form-group bmd-form-group " + this.errorClass
-                        }
-                      >
-                        <div className="input-group">
+                      <div className="form-group bmd-form-group ">
+                        {/* <div className="input-group">
                           <div className="input-group-prepend">
                             <span className="input-group-text">
                               <i className="material-icons">mail</i>
                             </span>
                           </div>
+                          
                           {this.renderInput("email", "Email")}
+
                           {this.validator.message(
                             "email",
                             this.state.data.email,
                             "required"
                           )}
-                        </div>
+                        </div> */}
+                        <label class="bmd-label-floating">Email</label>
+                        {this.renderInput("email", "")}
+                        {this.validator.message(
+                          "email",
+                          this.state.data.email,
+                          "required"
+                        )}
                       </div>
                       <div className="form-group bmd-form-group">
-                        <div className="input-group">
+                        {/* <div className="input-group">
                           <div className="input-group-prepend">
                             <span className="input-group-text">
                               <i className="material-icons">lock_outline</i>
                             </span>
                           </div>
                           {this.renderInput("password", "Senha", "password")}
-                        </div>
+                        </div> */}
+                        <label class="bmd-label-floating">Senha</label>
+                        {this.renderInput("password", "", "password")}
+                        {this.validator.message(
+                          "password",
+                          this.state.data.password,
+                          "required"
+                        )}
                       </div>
                       <div className="text-center">
                         {this.renderButton("Entrar", "btn btn-rose")}
@@ -109,6 +122,7 @@ class Login extends Form {
                       </p>
                     </div>
                   </div>
+                  <div className="col-md-3" />
                 </div>
               </div>
               <div style={{ paddingTop: "150px" }}>
