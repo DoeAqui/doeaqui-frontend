@@ -86,7 +86,7 @@ class Login extends Form {
                             "required"
                           )}
                         </div> */}
-                        <label class="bmd-label-floating">Email</label>
+                        <label className="bmd-label-floating">Email</label>
                         {this.renderInput("email", "")}
                         {this.validator.message(
                           "email",
@@ -103,7 +103,7 @@ class Login extends Form {
                           </div>
                           {this.renderInput("password", "Senha", "password")}
                         </div> */}
-                        <label class="bmd-label-floating">Senha</label>
+                        <label className="bmd-label-floating">Senha</label>
                         {this.renderInput("password", "", "password")}
                         {this.validator.message(
                           "password",
