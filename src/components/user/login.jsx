@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Link } from "react-router-dom";
+import SimpleReactValidator from "simple-react-validator";
 import Form from "../common/form";
 import SimpleFooter from "../footer/simpleFooter";
 import authService from "../../services/authService";
@@ -12,15 +13,34 @@ class Login extends Form {
     }
   };
 
-  doSubmit = async () => {
-    const { data } = this.state;
-    const result = await authService.login(data.email, data.password);
+  validator = {};
 
-    if (result.success === true) {
-      const { state } = this.props.location;
-      window.location = state ? state.from.pathname : "/";
-    } else if (result.success === false) {
-      this.showErrors(result.errors);
+  errorClass = "";
+
+  constructor() {
+    super();
+    this.validator = new SimpleReactValidator({
+      messages: {
+        required: "Este campo e obrigatorio"
+      }
+    });
+  }
+
+  doSubmit = async () => {
+    if (this.validator.allValid()) {
+      const { data } = this.state;
+      const result = await authService.login(data.email, data.password);
+
+      if (result.success === true) {
+        const { state } = this.props.location;
+        window.location = state ? state.from.pathname : "/";
+      } else if (result.success === false) {
+        this.showErrors(result.errors);
+      }
+    } else {
+      this.errorClass = "has-success";
+      this.validator.showMessages();
+      this.forceUpdate();
     }
   };
 
@@ -49,7 +69,11 @@ class Login extends Form {
                       Entre com sua conta para continuar
                     </p>
                     <form className="form" onSubmit={this.handleSubmit}>
-                      <div className="form-group bmd-form-group">
+                      <div
+                        className={
+                          "form-group bmd-form-group " + this.errorClass
+                        }
+                      >
                         <div className="input-group">
                           <div className="input-group-prepend">
                             <span className="input-group-text">
@@ -57,6 +81,11 @@ class Login extends Form {
                             </span>
                           </div>
                           {this.renderInput("email", "Email")}
+                          {this.validator.message(
+                            "email",
+                            this.state.data.email,
+                            "required"
+                          )}
                         </div>
                       </div>
                       <div className="form-group bmd-form-group">
