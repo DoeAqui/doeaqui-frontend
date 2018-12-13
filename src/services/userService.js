@@ -12,7 +12,17 @@ export function getUser(id) {
 }
 
 export async function register(name, email, password, phone) {
-  await http.post(apiEndpoint, { name, email, password, phone });
+  try {
+    const response = await http.post(apiEndpoint, {
+      name,
+      email,
+      password,
+      phone
+    });
+    return response.data;
+  } catch (ex) {
+    return ex.response.data;
+  }
 }
 
 export async function update(id, name, email, phone) {

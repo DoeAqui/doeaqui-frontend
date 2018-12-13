@@ -15,13 +15,11 @@ class Login extends Form {
 
   validator = {};
 
-  errorClass = "";
-
   constructor() {
     super();
     this.validator = new SimpleReactValidator({
       messages: {
-        required: "Este campo e obrigatorio"
+        required: "Por favor, preencha este campo"
       }
     });
   }
@@ -38,7 +36,6 @@ class Login extends Form {
         this.showErrors(result.errors);
       }
     } else {
-      this.errorClass = "has-success";
       this.validator.showMessages();
       this.forceUpdate();
     }
@@ -71,45 +68,24 @@ class Login extends Form {
                     </p>
                     <form className="form" onSubmit={this.handleSubmit}>
                       <div className="form-group bmd-form-group ">
-                        {/* <div className="input-group">
-                          <div className="input-group-prepend">
-                            <span className="input-group-text">
-                              <i className="material-icons">mail</i>
-                            </span>
-                          </div>
-                          
-                          {this.renderInput("email", "Email")}
-
+                        {this.renderInput("email", "Email")}
+                        <small className="form-text text-error">
                           {this.validator.message(
                             "email",
                             this.state.data.email,
                             "required"
                           )}
-                        </div> */}
-                        <label className="bmd-label-floating">Email</label>
-                        {this.renderInput("email", "")}
-                        {this.validator.message(
-                          "email",
-                          this.state.data.email,
-                          "required"
-                        )}
+                        </small>
                       </div>
                       <div className="form-group bmd-form-group">
-                        {/* <div className="input-group">
-                          <div className="input-group-prepend">
-                            <span className="input-group-text">
-                              <i className="material-icons">lock_outline</i>
-                            </span>
-                          </div>
-                          {this.renderInput("password", "Senha", "password")}
-                        </div> */}
-                        <label className="bmd-label-floating">Senha</label>
-                        {this.renderInput("password", "", "password")}
-                        {this.validator.message(
-                          "password",
-                          this.state.data.password,
-                          "required"
-                        )}
+                        {this.renderInput("password", "Senha", "password")}
+                        <small className="form-text text-error">
+                          {this.validator.message(
+                            "password",
+                            this.state.data.password,
+                            "required"
+                          )}
+                        </small>
                       </div>
                       <div className="text-center">
                         {this.renderButton("Entrar", "btn btn-rose")}

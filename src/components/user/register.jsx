@@ -1,6 +1,6 @@
 import React from "react";
+import SimpleReactValidator from "simple-react-validator";
 import Form from "../common/form";
-import { toast } from "react-toastify";
 import SimpleFooter from "../footer/simpleFooter";
 import userService from "../../services/userService";
 
@@ -14,23 +14,36 @@ class Register extends Form {
     }
   };
 
-  doSubmit = async () => {
-    try {
-      const { data } = this.state;
+  validator = {};
 
-      await userService.register(
+  constructor() {
+    super();
+    this.validator = new SimpleReactValidator({
+      messages: {
+        required: "Por favor, preencha este campo"
+      }
+    });
+  }
+
+  doSubmit = async () => {
+    if (this.validator.allValid()) {
+      const { data } = this.state;
+      const result = await userService.register(
         data.name,
         data.email,
         data.password,
         data.phone
       );
 
-      const { state } = this.props.location;
-      window.location = state ? state.from.pathname : "/";
-    } catch (ex) {
-      if (ex.response && ex.response.status === 400) {
-        toast.error(ex.response.data.errors);
+      if (result.success === true) {
+        const { state } = this.props.location;
+        window.location = state ? state.from.pathname : "/";
+      } else if (result.success === false) {
+        this.showErrors(result.errors);
       }
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
     }
   };
 
@@ -87,51 +100,49 @@ class Register extends Form {
                         </div>
                         <div className="col-md-5 mr-auto">
                           <form className="form" onSubmit={this.handleSubmit}>
-                            <div className="form-group bmd-form-group">
-                              <div className="input-group">
-                                <div className="input-group-prepend">
-                                  <span className="input-group-text">
-                                    <i className="material-icons">face</i>
-                                  </span>
-                                </div>
-                                {this.renderInput("name", "Nome")}
-                              </div>
-                            </div>
-                            <div className="form-group bmd-form-group">
-                              <div className="input-group">
-                                <div className="input-group-prepend">
-                                  <span className="input-group-text">
-                                    <i className="material-icons">mail</i>
-                                  </span>
-                                </div>
-                                {this.renderInput("email", "Email")}
-                              </div>
-                            </div>
-                            <div className="form-group bmd-form-group">
-                              <div className="input-group">
-                                <div className="input-group-prepend">
-                                  <span className="input-group-text">
-                                    <i className="material-icons">
-                                      lock_outline
-                                    </i>
-                                  </span>
-                                </div>
-                                {this.renderInput(
-                                  "password",
-                                  "Senha",
-                                  "password"
+                            <div className="form-group bmd-form-group ">
+                              {this.renderInput("name", "Nome")}
+                              <small className="form-text text-error">
+                                {this.validator.message(
+                                  "name",
+                                  this.state.data.name,
+                                  "required"
                                 )}
-                              </div>
+                              </small>
                             </div>
-                            <div className="form-group bmd-form-group">
-                              <div className="input-group">
-                                <div className="input-group-prepend">
-                                  <span className="input-group-text">
-                                    <i className="material-icons">phone</i>
-                                  </span>
-                                </div>
-                                {this.renderInput("phone", "Telefone")}
-                              </div>
+                            <div className="form-group bmd-form-group ">
+                              {this.renderInput("email", "Email")}
+                              <small className="form-text text-error">
+                                {this.validator.message(
+                                  "email",
+                                  this.state.data.email,
+                                  "required"
+                                )}
+                              </small>
+                            </div>
+                            <div className="form-group bmd-form-group ">
+                              {this.renderInput(
+                                "password",
+                                "Senha",
+                                "password"
+                              )}
+                              <small className="form-text text-error">
+                                {this.validator.message(
+                                  "password",
+                                  this.state.data.password,
+                                  "required"
+                                )}
+                              </small>
+                            </div>
+                            <div className="form-group bmd-form-group ">
+                              {this.renderInput("phone", "Telefone")}
+                              <small className="form-text text-error">
+                                {this.validator.message(
+                                  "telefone",
+                                  this.state.data.phone,
+                                  "required"
+                                )}
+                              </small>
                             </div>
                             <div className="text-center">
                               {this.renderButton("Criar conta", "btn btn-rose")}
