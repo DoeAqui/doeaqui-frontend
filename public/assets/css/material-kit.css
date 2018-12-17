@@ -11591,6 +11591,12 @@ textarea {
   max-width: 360px;
   margin: 0 auto;
   padding: 70px 0 30px; }
+  .info-register {
+    max-width: 360px;
+    margin: 0 auto;
+    padding-top: 15px;
+    color: white; }
+
   .info .icon {
     color: #999999; }
     .info .icon > i {
@@ -11600,6 +11606,11 @@ textarea {
     margin: 1.75rem 0 0.875rem; }
   .info p {
     color: #999999; }
+    .info-register p {
+      color: #FFFFFF; }
+      .info-register .info-title {
+        color: #FFFFFF;
+        margin: 1.75rem 0 0.875rem; }
 
 .info-horizontal .icon {
   float: left;
