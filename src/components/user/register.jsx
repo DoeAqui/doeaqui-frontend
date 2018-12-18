@@ -1,7 +1,6 @@
 import React from "react";
 import SimpleReactValidator from "simple-react-validator";
 import Form from "../common/form";
-import SimpleFooter from "../footer/simpleFooter";
 import userService from "../../services/userService";
 
 class Register extends Form {
@@ -163,9 +162,6 @@ class Register extends Form {
                     <div className="col-md-3" />
                   </div>
                 </div>
-                {/* <div style={{ paddingTop: "90px" }}>
-                  <SimpleFooter />
-                </div> */}
               </div>
             </div>
           </div>
